@@ -29,7 +29,7 @@ public class SearchRepairValidation implements Validator {
 
         if (startDate.equals("") && endDate.equals("") && afm.equals("")) {                                            //ALL ATTRIBUTES CANNOT BE NULL
             errors.rejectValue("scheduledDateStart", "repairSearch.allTheAttributes.Are.Null");
-        } else if (startDate.equals("") && !endDate.equals("") || afm.equals("")) {                                    //ONLY END DATE
+        } else if ((startDate.equals("") && !endDate.equals("")) && afm.equals("")) {                                    //ONLY END DATE
             errors.rejectValue("scheduledDateEnd", "repairSearch.Only.EndDate");
         } else if ((!startDate.equals("")) && (!endDate.equals(""))) {                                               //END DATE SOONER THAT START DATE
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd"); //ex: '1939-01-01'
